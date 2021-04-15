@@ -1,5 +1,9 @@
 const btn = document.getElementById('btn-kick')
 
+function getElById(id) {
+    return document.getElementById(id)
+}
+
 const random = (num) => {
     return Math.ceil(Math.random() * num)
 }
@@ -8,50 +12,55 @@ const character = {
     name: 'Pikachu',
     defaultHP: 100,
     damageHP: 100,
-    elHP: document.getElementById('health-character'),
-    elProgressBar: document.getElementById('progressbar-character')
+    elHP: getElById('health-character'),
+    elProgressBar: getElById('progressbar-character'),
+    changeHP: changeHP,
+    renderHP: renderHP,
+    renderHPLife: renderHPLife,
+    renderProgressBar: renderProgressBar
 }
 const enemy = {
     name: 'Charmander',
     defaultHP: 100,
     damageHP: 100,
-    elHP: document.getElementById('health-enemy'),
-    elProgressBar: document.getElementById('progressbar-enemy')
+    elHP: getElById('health-enemy'),
+    elProgressBar: getElById('progressbar-enemy'),
+    changeHP: changeHP,
+    renderHP: renderHP,
+    renderHPLife: renderHPLife,
+    renderProgressBar: renderProgressBar
 }
 
-const renderHPLife = (hero) => {
-    hero.elHP.innerText = `${hero.damageHP}/${hero.defaultHP}`
+function renderHPLife() {
+    this.elHP.innerText = `${this.damageHP}/${this.defaultHP}`
 }
-const renderProgressBar = (hero) => {
-    hero.elProgressBar.style.width = hero.damageHP + '%'
+function renderProgressBar() {
+    this.elProgressBar.style.width = this.damageHP + '%'
 }
-const renderHP = (hero) => {
-    renderHPLife(hero)
-    renderProgressBar(hero)
-}
-
-const changeHP = (count, hero) => {
-    if (hero.damageHP<count) {
-        hero.damageHP = 0
-        alert(`${hero.name} проиграл`)
+function changeHP(count) {
+    this.damageHP -= count
+    if (this.damageHP <= 0) {
+        this.damageHP = 0
+        alert(`${this.name} проиграл`)
         btn.disabled = true
-    } else {
-        hero.damageHP -= count
-
     }
-    renderHP(hero)
+    this.renderHP()
+}
+
+function renderHP() {
+    this.renderHPLife()
+    this.renderProgressBar()
 }
 
 btn.addEventListener('click', () => {
-    changeHP(random(20), enemy)
-    changeHP(random(20), character)
+    enemy.changeHP(random(20))
+    character.changeHP(random(20))
     console.log('kick')
 })
-
 const init = () => {
     console.log('start game')
-    renderHP(character)
-    renderHP(enemy)
+    character.renderHP()
+    enemy.renderHP()
 }
 
 
