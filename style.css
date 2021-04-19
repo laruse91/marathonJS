@@ -39,16 +39,14 @@ body {
     height: 260px;
     position: relative;
     margin: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-grow: 2;
 }
 
 .playground {
     max-width: 1024px;
     display: flex;
     justify-content: space-around;
-    margin: 30px auto;
+    margin: 10px auto 30px;
 }
 
 .arrow {
@@ -63,6 +61,7 @@ body {
     transform-origin: right center;
     pointer-events: none;
 }
+
 .arrow svg {
     position: absolute;
     width: 36px;
@@ -112,12 +111,15 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
 }
+
 .pokemon * {
     vertical-align: middle;
 }
+
 .pokemon .card {
     max-width: 100%;
 }
+
 .pokemon label {
     position: absolute;
     left: 10px;
@@ -127,10 +129,12 @@ body {
     z-index: 1;
     cursor: pointer;
 }
+
 .pokemon .radio {
     position: absolute;
     opacity: 0;
 }
+
 .pokemon .lvl {
     color: #00b8ff;
     position: absolute;
@@ -139,18 +143,22 @@ body {
     font-weight: 400;
     font-size: 18px;
 }
+
 .pokemon .sex {
     position: absolute;
     right: 32px;
     top: 18px;
 }
+
 .pokemon .sex .icon {
     width: 18px;
 }
+
 .pokemon .sex .icon.female {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
+
 .pokemon .sprite {
     position: absolute;
     top: 40%;
@@ -159,12 +167,14 @@ body {
     transform: translate(-50%, -50%);
     max-width: 100px;
 }
+
 .pokemon .details {
     position: absolute;
     top: 65%;
     left: 0;
     right: 0;
 }
+
 .pokemon .details .name {
     font-size: 20px;
     font-weight: 400;
@@ -172,16 +182,19 @@ body {
     margin: 4px 0;
     display: inline-block;
 }
+
 .pokemon .details .hp {
     width: 60%;
     margin: auto;
 }
+
 .pokemon .details .hp .text {
     color: #666;
     display: inline-block;
     padding-top: 4px;
     font-size: 14px;
 }
+
 .pokemon .details .hp .bar {
     border-radius: 50px;
     background: #073fa7;
@@ -189,20 +202,24 @@ body {
     height: 18px;
     overflow: hidden;
 }
+
 .pokemon .details .hp .bar .health {
     width: 50%;
     height: 100%;
     background: -webkit-gradient(linear, left top, right top, from(lime), to(#8bf500));
     background: linear-gradient(to right, lime, #8bf500);
 }
+
 .pokemon .details .hp .bar .health.low {
     background: -webkit-gradient(linear, left top, right top, from(#ffcc00), to(#f1f500));
     background: linear-gradient(to right, #ffcc00, #f1f500);
 }
+
 .pokemon .details .hp .bar .health.critical {
     background: -webkit-gradient(linear, left top, right top, from(#d20000), to(#f51700));
     background: linear-gradient(to right, #d20000, #f51700);
 }
+
 .pokemon .pokeball {
     position: absolute;
     fill: white;
@@ -215,20 +232,24 @@ body {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
 .pokemon .cell {
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
+
 .pokemon .cell .bg {
     stroke: rgba(255, 255, 255, 0.5);
     fill: rgba(255, 255, 255, 0.5);
     -webkit-transition: all 1.15s ease;
     transition: all 1.15s ease;
 }
+
 .pokemon .cell .stroke {
     stroke: white;
     stroke-width: 4px;
 }
+
 .pokemon:after {
     content: "";
     display: block;
@@ -244,22 +265,27 @@ body {
     transition: all 0.2s ease;
     z-index: -2;
 }
+
 .pokemon.selected:after {
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
 }
+
 .pokemon.selected .cell {
     -webkit-filter: drop-shadow(0px 2px 6px white);
     filter: drop-shadow(0px 2px 6px white);
     -webkit-transform: scale(1.02);
     transform: scale(1.02);
 }
+
 .pokemon.selected .cell .bg {
     fill: rgba(255, 246, 146, 0.9);
     fill: url(#bg-gradient-selected) !important;
 }
+
 .pokemon.selected .pokeball {
     opacity: 0.8;
 }
+
 .pokemon.selected .sprite {
     -webkit-animation: bounce 0.8s ease infinite;
     animation: bounce 0.8s ease infinite;
@@ -270,14 +296,17 @@ body {
     background: white;
     border: 2px solid #ffc55b;
     border-radius: 10px;
+    width: 200px;
     min-height: 30px;
     vertical-align: middle;
     padding: 12px 20px;
     outline: none !important;
     cursor: pointer;
     font-size: 18px;
+    margin: 10px;
 
 }
+
 .button:after {
     content: "";
     position: absolute;
@@ -290,17 +319,22 @@ body {
     z-index: -1;
     box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.2);
 }
+
 .button:hover {
     background: -webkit-gradient(linear, left top, left bottom, from(#ffd78e), to(#ffc55b));
     background: linear-gradient(to bottom, #ffd78e, #ffc55b);
     border-color: white;
 }
+
 .button:hover:after {
     background: -webkit-gradient(linear, left top, left bottom, from(#ffd78e), to(#ffc55b));
     background: linear-gradient(to bottom, #ffd78e, #ffc55b);
     box-shadow: 0 0 5px 2px white, 0 0 15px #ffe9c1, 0 3px 5px -2px rgba(0, 0, 0, 0.2);
 }
 
+#start {
+    margin: 20px auto 0;
+}
 .candy {
     display: block;
     position: absolute;
@@ -312,26 +346,32 @@ body {
     transform: scale(1);
     margin: 12px;
 }
+
 .candy.mighty {
     -webkit-filter: hue-rotate(300deg) saturate(2.2);
     filter: hue-rotate(300deg) saturate(2.2);
 }
+
 .candy.smart {
     -webkit-filter: hue-rotate(200deg) saturate(1) brightness(0.65) contrast(3);
     filter: hue-rotate(200deg) saturate(1) brightness(0.65) contrast(3);
 }
+
 .candy.tough {
     -webkit-filter: hue-rotate(170deg) saturate(1) brightness(0.65) contrast(3.1);
     filter: hue-rotate(170deg) saturate(1) brightness(0.65) contrast(3.1);
 }
+
 .candy.courage {
     -webkit-filter: hue-rotate(40deg) saturate(1) brightness(0.8) contrast(2);
     filter: hue-rotate(40deg) saturate(1) brightness(0.8) contrast(2);
 }
+
 .candy.quick {
     -webkit-filter: hue-rotate(140deg) saturate(1) brightness(0.8) contrast(1.8);
     filter: hue-rotate(140deg) saturate(1) brightness(0.8) contrast(1.8);
 }
+
 .candy:after {
     content: "";
     display: block;
@@ -350,6 +390,7 @@ body {
     -webkit-animation: float 1s ease infinite;
     animation: float 1s ease infinite;
 }
+
 .heart:after {
     content: "";
     width: 1px;
@@ -381,6 +422,7 @@ body {
         transform: translateY(-50%) translateX(-60%) scaleX(0.95) scaleY(1.1);
     }
 }
+
 @-webkit-keyframes bounce {
     0%,
     100% {
@@ -392,6 +434,7 @@ body {
         transform: translateY(-60%) translateX(-50%) scaleX(0.95) scaleY(1.03);
     }
 }
+
 @keyframes bounce {
     0%,
     100% {
@@ -403,6 +446,7 @@ body {
         transform: translateY(-60%) translateX(-50%) scaleX(0.95) scaleY(1.03);
     }
 }
+
 @-webkit-keyframes float {
     0%,
     100% {
@@ -414,6 +458,7 @@ body {
         transform: translateY(-57%) translateX(-50%);
     }
 }
+
 @keyframes float {
     0%,
     100% {
@@ -425,6 +470,7 @@ body {
         transform: translateY(-57%) translateX(-50%);
     }
 }
+
 body,
 html {
     min-height: 100%;
@@ -459,9 +505,11 @@ h1 {
 .row {
     margin-bottom: 12px;
 }
+
 .column {
     display: flex;
 }
+
 .action {
     display: flex;
     flex-direction: column;
