@@ -1,6 +1,6 @@
 [![header](https://github.com/laruse91/marathonJS/blob/main/dist/assets/title.png?raw=true)](https://laruse91-pokemon.web.app)
 
-You can see and test this little game by the link below, or just click to preview:    
+You can see and test this little game by the click to preview or use the link below:    
 link to site: [pokemon-battle]( https://laruse91-pokemon.web.app)
 
 ## Pokemons Battle
