@@ -1,0 +1,25 @@
+{
+  "name": "marathonJS",
+  "version": "1.0.0",
+  "description": "Pokemon Battle",
+  "scripts": {
+    "start": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laruse91/marathonJS.git"
+  },
+  "author": "Ruslan Lazarev",
+  "license": "ISC",
+  "homepage": "https://github.com/laruse91/marathonJS#readme",
+  "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

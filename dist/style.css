@@ -16,7 +16,7 @@ body {
     background-repeat: no-repeat;
     padding: 0;
     font-family: "Heebo", sans-serif;
-    background: url(./assets/Parkscene_Background.png) center bottom repeat-x, url(./assets/SkyDay.png) center top / cover;
+    background: url(assets/Parkscene_Background.png) center bottom repeat-x, url(assets/SkyDay.png) center top / cover;
     text-align: center;
     user-select: none;
 }
@@ -91,7 +91,7 @@ body {
     height: 260px;
     min-width: 150px;
     margin: 20px;
-    background-image: url(./assets/card.svg);
+    background-image: url(assets/card.svg);
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -107,7 +107,7 @@ body {
     left: 12%;
     top: 47%;
     transform: translateY(-50%);
-    background-image: url(./assets/pockeball.svg);
+    background-image: url(assets/pockeball.svg);
     background-repeat: no-repeat;
     background-size: contain;
 }

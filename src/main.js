@@ -3,16 +3,16 @@ import random from './utils.js';
 
 class Game {
 //buttons
-    attacks = document.querySelectorAll('.control .button')
     control = document.querySelector('.control');
     logArea = document.querySelector('.log')
-    logs = document.querySelectorAll('.log p')
 //methods
-    getPokemon = async () => {
+    getPokemon = async (id) => {
         const response = await fetch(
             'https://reactmarathon-api.netlify.app/api/pokemons?random=true',
         );
-        return await response.json()
+        const pokemon = await response.json()
+        if (pokemon.id === id) await this.getPokemon(id)
+        return pokemon
     };
     kick = async (player1Id, player2Id, attackId) => {
         const response = await fetch(
@@ -26,19 +26,24 @@ class Game {
         this.logArea.insertBefore(p, this.logArea.children[0])
     }
     removePrevGame = () => {
-        this.attacks && this.attacks.forEach(btn => btn.remove())
-        this.logs && this.logs.forEach(log => log.remove())
-    }
+        const attacks = document.querySelectorAll('.control .button')
+        const logs = document.querySelectorAll('.log p')
 
+        attacks && attacks.forEach(btn => btn.remove())
+        logs && logs.forEach(log => log.remove())
+    }
+    freezeAttacks = ()=>{
+        document.querySelectorAll('.control .button').forEach(btn => btn.disabled = true)
+    }
     start = async () => {
         this.removePrevGame()
 
         const player1 = new Pokemon({
-            ...await this.getPokemon(),
+            ...await this.getPokemon(null),
             selector: 'character',
         });
         const player2 = new Pokemon({
-            ...await this.getPokemon(),
+            ...await this.getPokemon(player1.id),
             selector: 'enemy',
         });
 //create attack buttons
@@ -55,6 +60,8 @@ class Game {
                     player1.changeHP(damage1)
                     player2.changeHP(damage2)
                     this.writeLog(generateLog(player1, player2, damage1))
+
+                    player1.hp.current === 0 || player2.hp.current === 0 && this.freezeAttacks()
                 })
             });
 
@@ -94,8 +101,9 @@ class Game {
             return logs[random(logs.length - 1)];
         }
     }
+
 }
 
 const start = document.querySelector('#start')
 const game = new Game();
-start.addEventListener('click', () => game.start())
+start.addEventListener('click', () =>game.start())
